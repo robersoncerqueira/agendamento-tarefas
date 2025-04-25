@@ -1,50 +1,56 @@
-import {View, Text, StyleSheet} from 'react-native'
+import { View, Text, StyleSheet } from 'react-native';
 
-export default function Tarefa(){
+export default function TarefaItem(props){
+
+    let statusColor = 'orange';
+    
+    if (props.status =='concluido'){
+        statusColor='green';
+    }
 
     return(
-        <View style= {styles.container}>
-            <Text style= {styles.titulo}> Tarefa 1</Text>
-            <Text style= {styles.data}> 03/04/2025</Text>
-            <Text style= {styles.categoria}> estudo</Text>
-            <View style={styles.status}>
-                <Text style={styles.textoStatus}> a cumprir</Text>
-
+        <View style={styles.container}>
+            <Text style={styles.titulo}>{props.nome}</Text>
+            <Text style={styles.data}>{props.data}</Text>
+            <Text style={styles.categoria}>Categoria {props.categoria}</Text>
+            <View style={{...styles.status, backgroundColor: statusColor}}>
+                <Text style={styles.textstatus}>{props.status}</Text>
             </View>
         </View>
-        )
+    )
 }
-
 const styles = StyleSheet.create({
-    container :{
-        with: '100%',
+    container: {
+        width: '100%',
         height: 100,
         padding: 15,
-        borderBottonWidth: 1,
+        borderBottomWidth: 1,
         borderColor: '#ccc'
     },
-    titulo:{
+    titulo: {
         fontWeight: 'bold',
         fontSize: 18
     },
-    data:{
-        margintop: 5,
-        marginleft: 3.5
+    data: {
+        marginTop: 5,
+        marginLeft: 3.5
     },
     categoria: {
-        margintop: 8
+        marginTop:8
     },
-    status:{
-        Backgroundcolor: 'orange',
-        with: 150,
+    status: {
+        backgroundColor: 'orange',
+        width: 130,
         height: 30,
         borderRadius: 30,
         justifyContent: 'center',
-        alignItens: 'center',
-        position: 'absolute'
+        alignItems: 'center',
+        position: 'absolute',
+        left: 150
     },
-    textoStatus:{
-        color: "white"
+    textstatus: {
+        color: 'white',
+        fontSize: 20,
+        fontFamily: 'bold'
     }
 });
-
