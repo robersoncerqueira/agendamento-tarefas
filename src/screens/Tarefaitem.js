@@ -7,6 +7,7 @@ export default function TarefaItem(props){
     if (props.status =='concluido'){
         statusColor='green';
     }
+    
 
     return(
         <View style={styles.container}>

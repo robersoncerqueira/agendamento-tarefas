@@ -10,6 +10,7 @@ import NovaTarefa from './src/screens/NovaTarefa';
 
 
 const RootStack = createNativeStackNavigator({
+  
   initialRouteName: "Home",
   screenOptions:{
     headerShown: false
